@@ -204,7 +204,6 @@ class Calculator {
     }  
 }
 
-
 // Initialize calculator
 const screen = document.querySelector(".screen");
 const calculator = new Calculator(screen);
@@ -216,10 +215,9 @@ Calculator.loadTheme();
 document.querySelectorAll(".btn").forEach(button => {
     button.addEventListener("click", () => {
         const value = button.innerText;
-
-        // Prevent "Trigonometry" button from being processed
+       
         if (button.id === "trig-button") {
-            return; // Do nothing
+            return; 
         }
 
         if (button.classList.contains("clear")) {
@@ -261,13 +259,13 @@ document.addEventListener("keydown", event => {
 });
 
 document.getElementById("toggle-theme").addEventListener("click", (event) => {
-    event.stopPropagation(); // Prevents the event from affecting other elements
-    event.preventDefault(); // Prevents default behavior if needed
+    event.stopPropagation(); 
+    event.preventDefault(); 
     calculator.toggleTheme();
 });
 
 document.querySelector(".calculator").addEventListener("click", (event) => {
-    if (event.target.classList.contains("theme-button")) return; // Ignore theme button clicks
+    if (event.target.classList.contains("theme-button")) return; 
     calculator.handleInput(event.target.innerText);
 });
 
